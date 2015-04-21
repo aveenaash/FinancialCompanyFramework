@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package com.bank.view;
+
+import com.bank.AccType;
+
+import com.bank.controller.CompanyController;
+
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.view.AccountDialog;
 
@@ -23,7 +28,6 @@ public class CompanyDialog extends AccountDialog {
         getContentPane().add(JLabel6);
         JLabel6.setForeground(java.awt.Color.black);
         JLabel6.setBounds(12, 204, 96, 24);
-
         repaint();
     }
 
@@ -39,11 +43,10 @@ public class CompanyDialog extends AccountDialog {
         noe = JTextField_BD.getText();
         em = JTextField_EM.getText();
         if (JRadioButton_Chk.isSelected()) {
-            //MyAccountType accountType = MyAccountType.CHECKING;
-            //new AddCompanyController().createAccount(accountType, name, ct, st, str, zip, acnr, noe, em);
+            new CompanyController().createAccount(AccType.CHECKING, name, ct, st, str, zip, acnr, noe, em);
         } else if (JRadioButton_Sav.isSelected()) {
-           // MyAccountType accountType = MyAccountType.SAVING;
-            //new AddCompanyController().createAccount(accountType, name, ct, st, str, zip, acnr, noe, em);
+           new CompanyController().createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, noe, em);
+
         }
         dispose();
         setVisible(false);
