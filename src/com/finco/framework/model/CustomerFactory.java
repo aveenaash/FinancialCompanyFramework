@@ -10,8 +10,7 @@ public class CustomerFactory {
 		if(customerType.equalsIgnoreCase("PERSONAL")){
 			ICustomer customer = new Personal(name, street, city, state, zip, birthdate, email);
 			return customer;
-		}
-		else if(customerType.equalsIgnoreCase("COMPANY")){
+		}else if(customerType.equalsIgnoreCase("COMPANY")){
 			ICustomer customer = new Company(name, street, city, state, zip, email);
 			return customer;
 		}

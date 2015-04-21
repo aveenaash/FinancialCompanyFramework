@@ -32,7 +32,6 @@ public abstract class AbstractController {
 		}
 	}
 	
-	
 	public Account getAccount(String accountId){
 		int accountIndex = getAccountIndexByAccountId(accountId);
 		return (accountList.get(accountIndex) != null)?accountList.get(accountIndex):null;
