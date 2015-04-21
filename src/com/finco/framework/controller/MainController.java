@@ -4,7 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import com.finco.framework.model.account.Account;
+import com.finco.framework.model.account.Deposit;
+import com.finco.framework.model.account.EmailObserver;
+import com.finco.framework.model.account.EmailPredicate;
 import com.finco.framework.model.account.IAccount;
+import com.finco.framework.model.account.TransactionEntry;
 import com.finco.framework.model.report.MonthlyReport;
 import com.finco.framework.model.report.YearlyReport;
 import com.finco.framework.search.SearchAccount;
@@ -42,6 +46,17 @@ public class MainController extends AbstractController{
 		
 		//When a deposit or withdrawal is done to a personal account, and the amount was larger than $500
 		//or the resulting amount is negative, the bank sends the person an Email about the transaction. 
+		
+		System.out.println("============= Email Observers =============");
+		EmailPredicate predicate = new EmailPredicate(500.0);
+		for(IAccount account: result){
+			EmailObserver observer = new EmailObserver((Account)account, predicate);
+			((Account)account).addObserver(observer);
+			
+			TransactionEntry transactionEntry = new TransactionEntry(new Deposit(), 900f, "monthly salary");
+			account.addEntry(transactionEntry);
+		}
+		
 		
 		
 	}
