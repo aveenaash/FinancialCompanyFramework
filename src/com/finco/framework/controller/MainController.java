@@ -38,6 +38,11 @@ public class MainController extends AbstractController{
 			System.out.println(report.getReport());
 			System.out.println();
 		}
+		
+		//When a deposit or withdrawal is done to a personal account, and the amount was larger than $500
+		//or the resulting amount is negative, the bank sends the person an Email about the transaction. 
+		
+		
 	}
 
 }

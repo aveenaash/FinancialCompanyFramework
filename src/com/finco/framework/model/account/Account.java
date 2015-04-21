@@ -2,11 +2,13 @@ package com.finco.framework.model.account;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import com.finco.framework.model.Customer;
 import com.finco.framework.model.ICustomer;
+import com.finco.framework.search.IPredicate;
 
-public class Account implements IAccount {
+public class Account extends Observable implements IAccount {
 
 	private String accountNumber;
 	private Customer customer;
@@ -43,6 +45,8 @@ public class Account implements IAccount {
 	public void addEntry(TransactionEntry transactionEntry) {
 		if (!this.transactionList.contains(transactionEntry)) {
 			this.transactionList.add(transactionEntry);
+			setChanged();
+	        notifyObservers();
 		}
 	}
 
@@ -100,5 +104,5 @@ public class Account implements IAccount {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
