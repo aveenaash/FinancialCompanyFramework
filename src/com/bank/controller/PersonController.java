@@ -42,11 +42,13 @@ public class PersonController extends AccountController {
     }
 
     public void createAccount(AccType acctype,String name, String ct, String st, String str, String zip, String acnr, String bd, String em) {
-    	Account account = new Account(acnr);
-		
+    	
+    	Account account = AccountFactory.getInstance(acctype);
+    	account.setAccountNumber(acnr);			
 		Customer personal = CustomerFactory.getInstance("Personal", name, str, ct, st, zip, new Date(bd), em);
 		personal.setAccount(account);
-    	Account aAccount = (Account) account;
+    	
+		Account aAccount = (Account) account;
         
         aAccount.setAccountNumber(acnr);
         account = aAccount;
@@ -62,7 +64,6 @@ public class PersonController extends AccountController {
         personal = c;
         personal.setAddress(a);
         personal.setAccount((Account)account);
-        System.out.println("Name ::: "+personal.getName());
         ApplicationFactory.getabstractControllerIntance().createAccount((Account)account);
         
     }

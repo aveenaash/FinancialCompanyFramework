@@ -183,8 +183,8 @@ public class ApplicationForm extends JFrame {
                 Customer cust = (Customer) ia.getCustomer();
                 rowdata[1] = cust.getName();
                 rowdata[2] = cust.getAddress().getCity();
-                //owdata[3] = cust.
-                //rowdata[4] = cust.getAccount().getType();
+                rowdata[3] = cust.getType();
+                rowdata[4] = cust.getAccount().getType();
                 rowdata[5] = ia.getBalance();
                 model.addRow(rowdata);
                 System.out.println("Data loaded");
