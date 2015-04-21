@@ -17,7 +17,7 @@ import com.framework.finco.controller.DepositController;
 import com.framework.finco.controller.ExitController;
 import com.framework.finco.controller.InterestController;
 import com.framework.finco.controller.WithdrawController;
-import com.framework.finco.manager.AbstractController;
+import com.framework.finco.manager.AccountManager;
 
 /**
  * A basic JFC based application.
@@ -177,7 +177,7 @@ public class ApplicationForm extends JFrame {
 	public void loadTableWithData() {
 		try {
 			model.setRowCount(0);
-			AbstractController accountManager = ApplicationFactory
+			AccountManager accountManager = ApplicationFactory
 					.getabstractControllerIntance();
 			for (IAccount ia : accountManager.getAccountList()) {
 				rowdata = new Object[8];
