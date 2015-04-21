@@ -182,11 +182,12 @@ public class ApplicationForm extends JFrame {
 			for (IAccount ia : accountManager.getAccountList()) {
 				rowdata = new Object[8];
 				rowdata[0] = ia.getAccountNumber();
-				Customer cust = (Customer) ia.getCustomer();
-				rowdata[1] = cust.getName();
-				rowdata[2] = cust.getAddress().getCity();
-				rowdata[3] = cust.getType();
-				rowdata[4] = cust.getAccount().getType();
+				//Customer cust = (Customer) ia.getCustomer();
+				//System.out.println("Customer" +cust);
+				rowdata[1] = ia.getCustomer().getName();
+				rowdata[2] = ia.getCustomer().getAddress().getCity();
+				rowdata[3] = ia.getCustomer().getType();
+				rowdata[4] = ia.getType();
 				rowdata[5] = ia.getBalance();
 				model.addRow(rowdata);
 				System.out.println("Data loaded");
@@ -263,7 +264,6 @@ public class ApplicationForm extends JFrame {
 	}
 
 	protected void BankFrm_windowClosing(java.awt.event.WindowEvent event) {
-		// to do: code goes here.
 		BankFrm_windowClosing_Interaction1(event);
 	}
 

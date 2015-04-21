@@ -54,9 +54,8 @@ public class PersonController extends AccountController {
 		((Personal)personal).setBirthDate(new Date(bd));
 		personal.setAccount(account);
     	
-        Personal c = (Personal) personal;
-        c.setName(name);
-
+        Personal c = (Personal) personal;        
+        System.out.println("Name ::: "+c.getName());
         try{
             c.setBirthDate(new Date(bd));
         }catch(IllegalArgumentException e){
@@ -64,6 +63,7 @@ public class PersonController extends AccountController {
         }
         personal = c;
         personal.setAccount((Account)account);
+        account.setCustomer(personal);
         ApplicationFactory.getabstractControllerIntance().createAccount((Account)account);
         
 
