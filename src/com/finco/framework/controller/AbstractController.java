@@ -16,7 +16,7 @@ import com.finco.framework.model.account.IAccount;
 import com.finco.framework.model.account.TransactionEntry;
 import com.finco.framework.model.account.Withdraw;
 
-public abstract class AbstractController {
+public class AbstractController {
 	
 	protected List<IAccount> accountList;
 	
