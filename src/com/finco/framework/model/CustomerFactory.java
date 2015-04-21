@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CustomerFactory {
 	
-	public ICustomer getInstance(String customerType, String name, String street
+	public static ICustomer getInstance(String customerType, String name, String street
 			, String city, String state, String zip, Date birthdate, String email){
 
 		if(customerType.equalsIgnoreCase("PERSONAL")){
