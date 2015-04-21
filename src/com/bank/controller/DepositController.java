@@ -49,6 +49,7 @@ public class DepositController extends com.framework.finco.controller.DepositCon
 		}else{
 			System.out.print("Account found "+searchedAccounts.size());
 		}
+		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
     }
 
 }

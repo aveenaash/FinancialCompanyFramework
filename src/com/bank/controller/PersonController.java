@@ -25,7 +25,7 @@ import com.framework.finco.controller.AccountController;
 
 /**
  *
- * @author naimi_000
+ * @author
  */
 public class PersonController extends AccountController {
 

@@ -6,6 +6,8 @@
 package com.bank.view;
 
 
+import com.bank.controller.DepositController;
+import com.bank.controller.WithdrawController;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.view.TransactionDialog;
 
@@ -25,8 +27,8 @@ public class WithdrawDialog extends TransactionDialog {
     @Override
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         String name = JTextField_NAME.getText();
-        String amount = JTextField_Deposit.getText();
-        //new WithdrawController().withdraw(this.getAccnr(), amount, name);
+        double amount = Double.parseDouble(JTextField_Deposit.getText());
+        new WithdrawController().withdraw(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
     }

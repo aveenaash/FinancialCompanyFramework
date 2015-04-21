@@ -14,6 +14,7 @@ import com.bank.controller.CompanyController;
 import com.bank.controller.DepositController;
 import com.bank.controller.PersonController;
 import com.bank.controller.WithdrawController;
+import com.finco.framework.controller.AbstractController;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
 
@@ -72,8 +73,11 @@ public class BankApplication extends ApplicationForm {
             }
 
             //Create a new instance of our application's frame, and make it visible.
-            //(new Bank()).setVisible(true);
+            //(new Bank()).setVisible(true);         
             BankApplication.getInstance().setVisible(true);
+
+            ApplicationFactory.getabstractControllerIntance().loadDummyData();   
+            
         } catch (Throwable t) {
             t.printStackTrace();
             //Ensure the application exits with an error condition.

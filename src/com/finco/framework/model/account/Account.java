@@ -26,13 +26,12 @@ public class Account implements IAccount {
 
 	@Override
 	public double getBalance() {
-		if (currentBalance == 0) {
-			this.calculateBalance();
-		}
+		this.calculateBalance();
 		return currentBalance;
 	}
 
 	public void calculateBalance() {
+		this.currentBalance = 0;
 		for (TransactionEntry transaction : transactionList) {
 			currentBalance += transaction.getTransactionType().getAmount(
 					transaction.getAmount());
@@ -81,7 +80,7 @@ public class Account implements IAccount {
 	}
 
 	public double getCurrentBalance() {
-		return currentBalance;
+		return getBalance();
 	}
 
 	public void setCurrentBalance(double currentBalance) {
