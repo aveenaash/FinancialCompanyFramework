@@ -6,7 +6,7 @@ public class Withdraw implements TransactionType{
 
 	@Override
 	public String toString() {
-		return "Deposit";
+		return "Withdraw";
 		
 	}
 

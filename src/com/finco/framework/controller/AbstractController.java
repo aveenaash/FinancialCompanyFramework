@@ -81,8 +81,9 @@ public abstract class AbstractController {
 			System.out.println("Customer: "+account.getCustomer().toString());
 			System.out.println("List of Transaction: ");
 			for(TransactionEntry tEntry: account.getTransactionList()){
-				System.out.println("Transaction: Amount = "+ tEntry.getAmount()+ ", Transaction Type : " + tEntry.getTransactionType()+ ", Date = "+tEntry.getDate()+ ", Note = " + tEntry.getNote());
+				System.out.println("Transaction: Amount = "+ tEntry.getAmount()+ ", Transaction Type : " + tEntry.getTransactionType().toString()+ ", Date = "+tEntry.getDate()+ ", Note = " + tEntry.getNote());
 			}
+			System.out.println("Get Total Balance: "+account.getBalance());
 		}
 	}
 	
