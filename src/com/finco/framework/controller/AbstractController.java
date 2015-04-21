@@ -64,6 +64,46 @@ public abstract class AbstractController {
 		
 	}
 	
+	
+	void createAccount2(){
+		
+		Account account = new Account(getAccountNumber());
+		
+		Customer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
+		personal.setAccount(account);
+		
+		TransactionEntry transactionEntry = new TransactionEntry(new Deposit(), 100f, "monthly salary");
+		account.addEntry(transactionEntry);
+		
+		transactionEntry = new TransactionEntry(new Deposit(), 200f, "gift");
+		account.addEntry(transactionEntry);
+		
+		transactionEntry = new TransactionEntry(new Withdraw(), 50f, "buy a mobile");
+		account.addEntry(transactionEntry);
+		
+		accountList.add(account);
+		
+		
+		account = new Account(getAccountNumber());
+		
+		Customer company = CustomerFactory.getInstance("Company", "Luiz Rodrigage", "1000 N 4th Street", "Fairfield", "Iowa", "52557", null, "luiz.rodrigage@gmail.com");
+		
+		company.setAccount(account);
+		
+		transactionEntry = new TransactionEntry(new Deposit(), 20000f, "project money");
+		account.addEntry(transactionEntry);
+		
+		transactionEntry = new TransactionEntry(new Withdraw(), 500f, "buy office stuff");
+		account.addEntry(transactionEntry);
+		
+		
+		accountList.add(account);
+		
+		System.out.println(new Date().toLocaleString());
+		//personal
+		
+	}
+	
 	private String getAccountNumber() {
 		return ((Math.random()*10000000)+"").substring(0, 7);
 	}
