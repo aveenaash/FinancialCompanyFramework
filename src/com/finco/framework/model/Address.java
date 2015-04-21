@@ -1,22 +1,26 @@
 package com.finco.framework.model;
 
-public class Address implements IAddress{
+public class Address implements IAddress {
 
 	private String street;
 	private String city;
 	private String state;
 	private String zip;
 	private String email;
-	
-	public Address(String street, String city, String state, String zip
-			, String email){
+
+	public Address() {
+
+	}
+
+	public Address(String street, String city, String state, String zip,
+			String email) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
 		this.email = email;
 	}
-	
+
 	public String getStreet() {
 		return street;
 	}
@@ -56,7 +60,7 @@ public class Address implements IAddress{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	@Override
 	public String getAddressInfo() {
 		// TODO Auto-generated method stub
@@ -68,7 +72,5 @@ public class Address implements IAddress{
 		return "Address [street=" + street + ", city=" + city + ", state="
 				+ state + ", zip=" + zip + ", email=" + email + "]";
 	}
-	
-	
 
 }
