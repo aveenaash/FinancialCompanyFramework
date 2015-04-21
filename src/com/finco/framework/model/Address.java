@@ -63,4 +63,12 @@ public class Address implements IAddress{
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "Address [street=" + street + ", city=" + city + ", state="
+				+ state + ", zip=" + zip + ", email=" + email + "]";
+	}
+	
+	
+
 }

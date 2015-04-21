@@ -1,38 +1,67 @@
 package com.finco.framework.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Observable;
 
+import com.finco.framework.model.CustomerFactory;
+import com.finco.framework.model.ICustomer;
 import com.finco.framework.model.account.Account;
+import com.finco.framework.model.account.IAccount;
 
 public abstract class AbstractController {
 	
-	protected List<Account> accountList;
+	protected List<IAccount> accountList;
 	
 	public AbstractController() {
+		accountList = new ArrayList<IAccount>();
 		
 	}
 
 	void createAccount(){
-		String accountNumber = getAccountNumber();		
-		Account account = new Account(getAccountNumber());
+		
+		IAccount account = new Account(getAccountNumber());
+		
+		
+		ICustomer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
+		personal.addAccount(account);
+		
 		accountList.add(account);
+		
+		
+		account = new Account(getAccountNumber());
+		
+		ICustomer company = CustomerFactory.getInstance("Company", "Luiz Rodrigage", "1000 N 4th Street", "Fairfield", "Iowa", "52557", null, "luiz.rodrigage@gmail.com");
+		
+		company.addAccount(account);
+		
+		accountList.add(account);
+		
+		
 	}
 	
 	private String getAccountNumber() {
-		return (Math.random()*10000000)+"";
+		return ((Math.random()*10000000)+"").substring(0, 7);
 	}
 
 	void addInterestToAllAccount(){
-		for(Account account : accountList){
+		for(IAccount account : accountList){
 			
 		}
 	}
 	
-	public Account getAccount(String accountId){
+	void displayAllAccountInformation(){
+		for(IAccount account : accountList){
+			System.out.println("---------------------------------------------------------");
+			System.out.println("Account Number: "+account.getAccountNumber());
+			System.out.println("Customer: "+account.getCustomer().toString());
+		}
+	}
+	
+	public IAccount getAccount(String accountId){
 		int accountIndex = getAccountIndexByAccountId(accountId);
 		return (accountList.get(accountIndex) != null)?accountList.get(accountIndex):null;
 	}
@@ -42,11 +71,11 @@ public abstract class AbstractController {
 		return 0;
 	}
 
-	public List<Account> getAccountList() {
+	public List<IAccount> getAccountList() {
 		return accountList;
 	}
 
-	public void setAccountList(List<Account> accountList) {
+	public void setAccountList(List<IAccount> accountList) {
 		this.accountList = accountList;
 	}
 	
