@@ -9,4 +9,5 @@ public interface ICustomer {
 	public void setAddress(Address address);
 	public Address getAddress();
 	public void sendEmail();
+	public String getName();
 }

@@ -1,8 +1,8 @@
 package com.finco.framework.search;
 
-import com.finco.framework.model.account.Account;
+import com.finco.framework.model.account.IAccount;
 
-public class SearchPredicate implements IPredicate<Account>{
+public class SearchPredicate implements IPredicate<IAccount>{
 
 	private String keyword;
 	
@@ -11,7 +11,7 @@ public class SearchPredicate implements IPredicate<Account>{
 	}
 	
 	@Override
-	public boolean check(Account input) {
+	public boolean check(IAccount input) {
 		// TODO Auto-generated method stub
 		return input.getAccountNumber().contains(keyword) 
 				|| input.getCustomer().getName().contains(keyword);
