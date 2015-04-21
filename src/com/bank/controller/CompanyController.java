@@ -9,7 +9,17 @@ package com.bank.controller;
 
 import java.awt.event.ActionEvent;
 
+import java.util.Date;
+
+import com.bank.AccType;
 import com.bank.view.CompanyDialog;
+import com.finco.framework.model.Company;
+import com.finco.framework.model.Customer;
+import com.finco.framework.model.CustomerFactory;
+import com.finco.framework.model.Personal;
+import com.finco.framework.model.account.Account;
+import com.finco.framework.model.account.AccountFactory;
+
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.controller.AccountController;
@@ -18,45 +28,44 @@ import com.framework.finco.controller.AccountController;
  *
  * @author abinash
  */
-public class CompanyController extends AccountController{
 
-    public CompanyController() {
-        super();
-    }
+public class CompanyController extends AccountController {
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        ApplicationForm accountFrm=ApplicationFactory.getFinancialAppFormIntance();
-        CompanyDialog pac = new CompanyDialog(accountFrm);
-        pac.setBounds(450, 20, 300, 330);
-        pac.show();
-    }
-    
-//    public void createAccount(MyAccountType accountType,String name,String ct,String st,String str,String zip
-//            ,String acnr,String noe,String em){
-//        IAccount account=FactoryProducer.getFactory(MyAccountType.MYAC).getAccount(accountType);
-//        AAccount aAccount = (AAccount)account;
-//        aAccount.setAcctNumber(acnr);
-//        
-//        account = aAccount;
-//        IParty party=FactoryProducer.getFactory(Types.PARTY).getParty(PartyType.COMPANY);
-//        Company c=(Company)party;
-//        c.setName(name);
-//        c.setCity(ct);
-//        c.setState(st);
-//        c.setStreet(str);
-//        c.setZip(zip);
-//        try{
-//            c.setNoOfEmployee(Integer.parseInt(noe));
-//        }catch(NumberFormatException e){
-//            System.err.println("Number formate in noofemplyee");
-//            c.setNoOfEmployee(1);
-//        }
-//        c.setEmail(em);
-//        party=c;
-//        party.addAccount(account);
-//        ClassicSingleton.getInstanceAccountManager().addAccountToList(account);
-//    }
-    
-    
+	public CompanyController() {
+		super();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		ApplicationForm accountFrm = ApplicationFactory
+				.getFinancialAppFormIntance();
+		CompanyDialog pac = new CompanyDialog(accountFrm);
+		pac.setBounds(450, 20, 300, 330);
+		pac.show();
+	}
+
+	public void createAccount(AccType acctype, String name, String ct,
+			String st, String str, String zip, String acnr, String noe,
+			String em) {
+
+		Account account = AccountFactory.getInstance(acctype);
+		account.setAccountNumber(acnr);
+		Customer company = CustomerFactory.getInstance("Company");
+		company.setName(name);
+		company.getAddress().setState(st);
+		company.getAddress().setStreet(str);
+		company.getAddress().setZip(zip);
+		company.getAddress().setCity(ct);
+		company.setAccount(account);
+		Company c = (Company) company;
+		try {
+			c.setNoOfEmployees(Integer.parseInt(noe));
+		} catch (IllegalArgumentException e) {
+			System.err.println("IllegalArgumentException in setDateOfBirth");
+		}
+		company.setAccount((Account) account);
+		ApplicationFactory.getabstractControllerIntance().createAccount(
+				(Account) account);
+	}
+
 }

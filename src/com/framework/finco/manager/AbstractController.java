@@ -27,8 +27,6 @@ public class AbstractController {
 
 	public void createAccount(Account account){
 		accountList.add(account);
-		System.out.println("Account nu "+ account.getAccountNumber());
-		System.out.println("Customer Name :"+ account.getCustomer().getName());
 		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
 	}
 	

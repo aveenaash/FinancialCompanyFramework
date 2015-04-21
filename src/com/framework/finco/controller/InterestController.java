@@ -26,8 +26,7 @@ public class InterestController implements Controller {
     public void actionPerformed(ActionEvent ae) {
         try {
             //accountManager.addInterest();
-            //JOptionPane.showMessageDialog(ClassicSingleton.getInstanceAccountFrm(), "Add interest to all accounts", "Add interest to all accounts", JOptionPane.WARNING_MESSAGE);
-        } catch (Exception ex) {
+       } catch (Exception ex) {
             Logger.getLogger(InterestController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

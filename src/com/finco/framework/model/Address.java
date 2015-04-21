@@ -1,12 +1,16 @@
 package com.finco.framework.model;
 
-public class Address implements IAddress{
+public class Address{
 
 	private String street;
 	private String city;
 	private String state;
 	private String zip;
 	private String email;
+	
+	public Address(){
+		
+	}
 	
 	public Address(String street, String city, String state, String zip
 			, String email){
@@ -56,19 +60,11 @@ public class Address implements IAddress{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@Override
-	public String getAddressInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public String toString() {
 		return "Address [street=" + street + ", city=" + city + ", state="
 				+ state + ", zip=" + zip + ", email=" + email + "]";
 	}
-	
-	
 
 }

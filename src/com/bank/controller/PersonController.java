@@ -11,14 +11,13 @@ import java.util.Date;
 
 import com.bank.AccType;
 import com.bank.view.PersonDialog;
-import com.finco.framework.model.Address;
+
 import com.finco.framework.model.Customer;
+
 import com.finco.framework.model.CustomerFactory;
-import com.finco.framework.model.ICustomer;
 import com.finco.framework.model.Personal;
 import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.AccountFactory;
-import com.finco.framework.model.account.IAccount;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.controller.AccountController;
@@ -45,26 +44,28 @@ public class PersonController extends AccountController {
     	
     	Account account = AccountFactory.getInstance(acctype);
     	account.setAccountNumber(acnr);			
-		Customer personal = CustomerFactory.getInstance("Personal", name, str, ct, st, zip, new Date(bd), em);
+		Customer personal = CustomerFactory.getInstance("Personal");
+		personal.setName(name);
+		
+		personal.getAddress().setState(st);
+		personal.getAddress().setStreet(str);
+		personal.getAddress().setZip(zip);
+		personal.getAddress().setCity(ct);
+		((Personal)personal).setBirthDate(new Date(bd));
 		personal.setAccount(account);
     	
-		Account aAccount = (Account) account;
-        
-        aAccount.setAccountNumber(acnr);
-        account = aAccount;
-
-        Personal c = (Personal) personal;
-        c.setName(name);
-        Address a=new Address(st, ct, st, zip, em);
+        Personal c = (Personal) personal;        
+        System.out.println("Name ::: "+c.getName());
         try{
             c.setBirthDate(new Date(bd));
         }catch(IllegalArgumentException e){
             System.err.println("IllegalArgumentException in setDateOfBirth");
         }
         personal = c;
-        personal.setAddress(a);
         personal.setAccount((Account)account);
+        account.setCustomer(personal);
         ApplicationFactory.getabstractControllerIntance().createAccount((Account)account);
         
+
     }
 }

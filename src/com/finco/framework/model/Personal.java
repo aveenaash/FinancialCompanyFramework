@@ -7,6 +7,10 @@ public class Personal extends Customer implements IPersonal {
 	private Date birthDate;
 	private Company company;
 
+	public Personal() {
+		super();
+	}
+
 	public Personal(String name, String street, String city, String state,
 			String zip, Date birthdate, String email) {
 		super(name, street, city, state, zip, email);
@@ -29,6 +33,7 @@ public class Personal extends Customer implements IPersonal {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+
 
 	@Override
 	public String getType() {
