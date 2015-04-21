@@ -11,7 +11,10 @@ import com.finco.framework.model.Customer;
 import com.finco.framework.model.CustomerFactory;
 import com.finco.framework.model.ICustomer;
 import com.finco.framework.model.account.Account;
+import com.finco.framework.model.account.Deposit;
 import com.finco.framework.model.account.IAccount;
+import com.finco.framework.model.account.TransactionEntry;
+import com.finco.framework.model.account.Withdraw;
 
 public abstract class AbstractController {
 	
@@ -26,9 +29,17 @@ public abstract class AbstractController {
 		
 		Account account = new Account(getAccountNumber());
 		
-		
 		Customer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
 		personal.setAccount(account);
+		
+		TransactionEntry transactionEntry = new TransactionEntry(new Deposit(), 100f, "monthly salary");
+		account.addEntry(transactionEntry);
+		
+		transactionEntry = new TransactionEntry(new Deposit(), 200f, "gift");
+		account.addEntry(transactionEntry);
+		
+		transactionEntry = new TransactionEntry(new Withdraw(), 50f, "buy a mobile");
+		account.addEntry(transactionEntry);
 		
 		accountList.add(account);
 		
@@ -39,7 +50,17 @@ public abstract class AbstractController {
 		
 		company.setAccount(account);
 		
+		transactionEntry = new TransactionEntry(new Deposit(), 20000f, "project money");
+		account.addEntry(transactionEntry);
+		
+		transactionEntry = new TransactionEntry(new Withdraw(), 500f, "buy office stuff");
+		account.addEntry(transactionEntry);
+		
+		
 		accountList.add(account);
+		
+		System.out.println(new Date().toLocaleString());
+		//personal
 		
 	}
 	
@@ -58,6 +79,10 @@ public abstract class AbstractController {
 			System.out.println("---------------------------------------------------------");
 			System.out.println("Account Number: "+account.getAccountNumber());
 			System.out.println("Customer: "+account.getCustomer().toString());
+			System.out.println("List of Transaction: ");
+			for(TransactionEntry tEntry: account.getTransactionList()){
+				System.out.println("Transaction: Amount = "+ tEntry.getAmount()+ ", Transaction Type : " + tEntry.getTransactionType()+ ", Date = "+tEntry.getDate()+ ", Note = " + tEntry.getNote());
+			}
 		}
 	}
 	

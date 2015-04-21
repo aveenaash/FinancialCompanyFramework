@@ -7,7 +7,7 @@ import java.util.List;
 import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.IAccount;
 
-public class Customer implements ICustomer{
+public abstract class Customer implements ICustomer{
 
 	private String name;
 	private Address address;
@@ -56,9 +56,5 @@ public class Customer implements ICustomer{
 	public String toString() {
 		return "Customer [name=" + name + ", addresses=" + address + "]";
 	}
-
 	
-	
-	
-
 }

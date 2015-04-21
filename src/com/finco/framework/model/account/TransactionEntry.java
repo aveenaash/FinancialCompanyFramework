@@ -9,6 +9,16 @@ public class TransactionEntry implements IEntry {
 	private Date date;
 	private String note;
 	
+	
+	
+	public TransactionEntry(TransactionType transactionType, float amount, String note) {
+		super();
+		this.amount = amount;
+		this.transactionType = transactionType;
+		this.date = new Date();
+		this.note = note;
+	}
+
 	public float getAmount() {
 		return amount;
 	}

@@ -1,5 +1,7 @@
 package com.finco.framework.model.account;
 
+import java.util.List;
+
 import com.finco.framework.model.Customer;
 import com.finco.framework.model.ICustomer;
 
@@ -14,5 +16,8 @@ public interface IAccount {
 	ICustomer getCustomer();
 	
 	String getAccountNumber();
+	
+	
+	List<TransactionEntry> getTransactionList();
 
 }
