@@ -7,6 +7,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Observable;
 
+import com.finco.framework.model.Customer;
 import com.finco.framework.model.CustomerFactory;
 import com.finco.framework.model.ICustomer;
 import com.finco.framework.model.account.Account;
@@ -23,23 +24,22 @@ public abstract class AbstractController {
 
 	void createAccount(){
 		
-		IAccount account = new Account(getAccountNumber());
+		Account account = new Account(getAccountNumber());
 		
 		
-		ICustomer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
-		personal.addAccount(account);
+		Customer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
+		personal.setAccount(account);
 		
 		accountList.add(account);
 		
 		
 		account = new Account(getAccountNumber());
 		
-		ICustomer company = CustomerFactory.getInstance("Company", "Luiz Rodrigage", "1000 N 4th Street", "Fairfield", "Iowa", "52557", null, "luiz.rodrigage@gmail.com");
+		Customer company = CustomerFactory.getInstance("Company", "Luiz Rodrigage", "1000 N 4th Street", "Fairfield", "Iowa", "52557", null, "luiz.rodrigage@gmail.com");
 		
-		company.addAccount(account);
+		company.setAccount(account);
 		
 		accountList.add(account);
-		
 		
 	}
 	

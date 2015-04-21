@@ -4,19 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.IAccount;
 
 public class Customer implements ICustomer{
 
 	private String name;
-	private List<IAddress> addresses = new ArrayList<IAddress>();
-	private List<IAccount> accounts = new ArrayList<IAccount>();
-	
-	private IAccount account;
+	private Address address;
+	private Account account;
 		
 	public Customer(String name, String street, String city, String state, String zip, String email){
 		this.name = name;
-		addresses.add(new Address(street, city, state, zip, email));
+		address = new Address(street, city, state, zip, email);
 	}
 	
 	public String getName() {
@@ -28,14 +27,14 @@ public class Customer implements ICustomer{
 	}
 
 	@Override
-	public void addAccount(IAccount account) {
-		accounts.add(account);
-		account.setCustomer(this);
+	public void setAccount(Account account) {
+		this.account = account;
+		this.account.setCustomer(this);
 	}
 
 	@Override
-	public void removeAccount(IAccount account) {
-		accounts.remove(account);
+	public Account getAccount() {
+		return account;
 	}
 
 	@Override
@@ -44,18 +43,18 @@ public class Customer implements ICustomer{
 	}
 
 	@Override
-	public void addAddress(IAddress address) {
-		addresses.add(address);
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
-	public void removeAddress(IAddress address) {
-		addresses.remove(address);
+	public Address getAddress() {
+		return address;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [name=" + name + ", addresses=" + addresses + "]";
+		return "Customer [name=" + name + ", addresses=" + address + "]";
 	}
 
 	
