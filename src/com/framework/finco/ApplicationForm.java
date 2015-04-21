@@ -85,13 +85,13 @@ public class ApplicationForm extends JFrame {
         JButton_Deposit.setText("Deposit");
         JPanel1.add(JButton_Deposit);
         JButton_Deposit.setBounds(468, 104, 96, 33);
-        JButton_Deposit.setEnabled(false);
+        JButton_Deposit.setEnabled(true);
         JButton_Withdraw.setText("Withdraw");
         JPanel1.add(JButton_Withdraw);
-        JButton_Withdraw.setEnabled(false);
+        JButton_Withdraw.setEnabled(true);
         JButton_Addinterest.setBounds(448, 20, 106, 33);
         JButton_Addinterest.setText("Add interest");
-        JButton_Addinterest.setEnabled(false);
+        JButton_Addinterest.setEnabled(true);
         JPanel1.add(JButton_Addinterest);
         JButton_Withdraw.setBounds(468, 164, 96, 33);
         JButton_Exit.setText("Exit");

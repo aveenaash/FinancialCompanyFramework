@@ -4,29 +4,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.IAccount;
 
 public class SearchAccount implements ISearchAccount{
 
-	private List<IAccount> accounts;
+	private List<Account> accounts;
 	
-	public SearchAccount(List<IAccount> accounts){
+	public SearchAccount(List<Account> accounts){
 		this.accounts = accounts;
 	}
 	
 	@Override
-	public List<IAccount> search(String input) {
+	public List<Account> search(String input) {
 		// TODO Auto-generated method stub
 		
 		SearchPredicate predicate = new SearchPredicate(input);
 		
-		List<IAccount> searchResult = new ArrayList<IAccount>();
-		Iterator<IAccount> accIterator = accounts.iterator();
+		List<Account> searchResult = new ArrayList<Account>();
+		Iterator<Account> accIterator = accounts.iterator();
 		
 		
 		while(accIterator.hasNext()){
-			if(predicate.check(accIterator.next())){
-				searchResult.add(accIterator.next());
+			Account account = accIterator.next();
+			if(predicate.check(account)){
+				searchResult.add(account);
 			}
 		}
 		

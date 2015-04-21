@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class TransactionEntry implements IEntry {
 	
-	private float amount;
+	private double amount;
 	private TransactionType transactionType;
 	private Date date;
 	private String note;
 	
 	
 	
-	public TransactionEntry(TransactionType transactionType, float amount, String note) {
+	public TransactionEntry(TransactionType transactionType, double amount, String note) {
 		super();
 		this.amount = amount;
 		this.transactionType = transactionType;
@@ -19,7 +19,7 @@ public class TransactionEntry implements IEntry {
 		this.note = note;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 	

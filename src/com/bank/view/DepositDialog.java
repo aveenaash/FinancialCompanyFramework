@@ -6,6 +6,7 @@
 package com.bank.view;
 import java.awt.event.ActionEvent;
 
+import com.bank.controller.DepositController;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.view.TransactionDialog;
 
@@ -23,10 +24,11 @@ public class DepositDialog extends TransactionDialog {
     @Override
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         String name = JTextField_NAME.getText();
-        String amount = JTextField_Deposit.getText();
-        //new DepositController().deposit(this.getAccnr(), amount, name);
+        double amount = Double.parseDouble(JTextField_Deposit.getText());
+        new DepositController().deposit(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
+        
     }
 
 }

@@ -13,13 +13,13 @@ public class MainController extends AbstractController{
 		
 		mainController.displayAllAccountInformation();
 		
-		SearchAccount searchAccount = new SearchAccount(mainController.accountList);
-		List<IAccount> result = searchAccount.search("John");
-		
-		System.out.println("Search Result: ");
-		for(IAccount account: result){
-			System.out.println(account.getAccountNumber() + " : " + account.getCustomer().getName());
-		}
+//		SearchAccount searchAccount = new SearchAccount(mainController.getAccountList());
+//		List<Account> result = searchAccount.search("John");
+//		
+//		System.out.println("Search Result: ");
+//		for(IAccount account: result){
+//			System.out.println(account.getAccountNumber() + " : " + account.getCustomer().getName());
+//		}
 	}
 
 }
