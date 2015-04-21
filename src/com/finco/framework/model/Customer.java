@@ -14,7 +14,7 @@ public abstract class Customer implements ICustomer{
 	private Account account;
 	
 	public Customer(){
-		
+		address=new Address();		
 	}
 		
 	public Customer(String name, String street, String city, String state, String zip, String email){
