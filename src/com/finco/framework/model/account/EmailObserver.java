@@ -18,11 +18,11 @@ public class EmailObserver implements Observer{
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		if(arg0==account){
-			if(predicate.check(account.getBalance())){
-				sendEmail();
-			}
-		}
+//		if(arg0==account){
+//			if(predicate.check(account.getBalance())){
+//				sendEmail();
+//			}
+//		}
 	}
 	
 	private void sendEmail(){

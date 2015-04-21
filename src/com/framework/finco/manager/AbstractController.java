@@ -65,6 +65,7 @@ public class AbstractController {
 		account.setAccountNumber(getAccountNumber());
 		Customer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
 		personal.setAccount(account);
+		account.setCustomer(personal);
 		
 		TransactionEntry transactionEntry = new TransactionEntry(new Deposit(), 100f, "monthly salary");
 		account.addEntry(transactionEntry);
@@ -83,6 +84,8 @@ public class AbstractController {
 		Customer company = CustomerFactory.getInstance("Company", "Luiz Rodrigage", "1000 N 4th Street", "Fairfield", "Iowa", "52557", null, "luiz.rodrigage@gmail.com");
 		
 		company.setAccount(account);
+		account.setCustomer(personal);
+		
 		
 		transactionEntry = new TransactionEntry(new Deposit(), 20000f, "project money");
 		account.addEntry(transactionEntry);

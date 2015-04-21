@@ -1,10 +1,7 @@
 package com.finco.framework.model.account;
 
 import java.util.HashMap;
-
-
 import java.util.Map;
-
 
 import com.bank.AccType;
 import com.bank.CheckingAccount;
@@ -24,5 +21,4 @@ public class AccountFactory {
 		return hashmap.get(accType);
 	}
 	
-
 }
