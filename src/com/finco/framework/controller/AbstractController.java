@@ -18,10 +18,10 @@ import com.finco.framework.model.account.Withdraw;
 
 public class AbstractController {
 	
-	protected List<IAccount> accountList;
+	protected List<Account> accountList;
 	
 	public AbstractController() {
-		accountList = new ArrayList<IAccount>();
+		accountList = new ArrayList<Account>();
 		
 	}
 
@@ -137,11 +137,11 @@ public class AbstractController {
 		return 0;
 	}
 
-	public List<IAccount> getAccountList() {
+	public List<Account> getAccountList() {
 		return accountList;
 	}
 
-	public void setAccountList(List<IAccount> accountList) {
+	public void setAccountList(List<Account> accountList) {
 		this.accountList = accountList;
 	}
 	
