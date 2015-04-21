@@ -12,12 +12,12 @@ public class Account implements IAccount{
 	public Account(String accountNumber) {
 		this.accountNumber = accountNumber;
 		this.transactionList = new ArrayList<TransactionEntry>();
-		currentBalance = 0d;
+		currentBalance = 0;
 	}
 	
 	@Override
 	public double getBalance() {
-		if(currentBalance == 0d){
+		if(currentBalance == 0){
 			this.calculateBalance();
 		}
 		return currentBalance;		
