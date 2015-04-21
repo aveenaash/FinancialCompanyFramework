@@ -17,7 +17,7 @@ public interface IAccount {
 	
 	String getAccountNumber();
 	
-	
+	String getType();
 	List<TransactionEntry> getTransactionList();
 
 }

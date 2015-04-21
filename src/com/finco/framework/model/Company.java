@@ -25,5 +25,10 @@ public class Company extends Customer implements ICompany {
 		// TODO Auto-generated method stub
 		employees.remove(personal);
 	}
+
+	@Override
+	public String getType() {
+		return "C";
+	}
 	
 }

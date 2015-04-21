@@ -4,13 +4,16 @@ import com.finco.framework.model.account.Account;
 
 public class SavingAccount extends Account {
 
+	public SavingAccount() {
+		super();
+	}
+	
 	public SavingAccount(String accountNumber) {
 		super(accountNumber);
-		// TODO Auto-generated constructor stub
 	}
 
-//	@Override
-//	public String getType() {
-//		return "Ch";
-//	}
+	@Override
+	public String getType() {
+		return "S";
+	}
 }

@@ -10,4 +10,5 @@ public interface ICustomer {
 	public Address getAddress();
 	public void sendEmail();
 	public String getName();
+	public String getType();
 }
