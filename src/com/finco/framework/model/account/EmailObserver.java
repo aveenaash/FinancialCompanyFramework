@@ -30,7 +30,8 @@ public class EmailObserver implements Observer{
 		Email email = new Email();
 		email.setEmailTo(account.getCustomer().getAddress().getEmail());
 		email.setEmailSubject("Email Notification");
-		email.setEmailBody("This email is to notify you that a transaction has been performed.");
+		email.setEmailSubject(getSubject());
+		email.setEmailBody(getBody());
 		try {
 			email.sendEmail();
 		} catch (UnsupportedEncodingException e) {
@@ -38,5 +39,13 @@ public class EmailObserver implements Observer{
 			e.printStackTrace();
 		}
 		System.out.println("Email to " + account.getCustomer()+ " has been sent");
+	}
+	
+	public String getSubject(){
+		return "Transaction has been performed";
+	}
+	
+	public String getBody(){
+		return "The transaction below has been performed\n";
 	}
 }
