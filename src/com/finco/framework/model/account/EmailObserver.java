@@ -1,5 +1,6 @@
 package com.finco.framework.model.account;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -26,6 +27,16 @@ public class EmailObserver implements Observer{
 	}
 	
 	private void sendEmail(){
+		Email email = new Email();
+		email.setEmailTo(account.getCustomer().getAddress().getEmail());
+		email.setEmailSubject("Email Notification");
+		email.setEmailBody("This email is to notify you that a transaction has been performed.");
+		try {
+			email.sendEmail();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Email to " + account.getCustomer()+ " has been sent");
 	}
 }
