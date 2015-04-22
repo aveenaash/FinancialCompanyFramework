@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.finco.framework.model.Email;
 import com.finco.framework.search.IPredicate;
 
 public class EmailObserver implements Observer{

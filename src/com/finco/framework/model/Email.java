@@ -1,4 +1,4 @@
-package com.finco.framework.model.account;
+package com.finco.framework.model;
 
 import java.util.*;
 import javax.mail.*;

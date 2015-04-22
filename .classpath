@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/Course/ASD/HW/FinancialCompanyFramework/FinancialCompanyFramework/lib/activation.jar"/>
 	<classpathentry kind="lib" path="D:/Course/ASD/HW/FinancialCompanyFramework/FinancialCompanyFramework/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MdRuzdi/workspace/Java/ASD/FCF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MdRuzdi/workspace/Java/ASD/FCF/lib/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
