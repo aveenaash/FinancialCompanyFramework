@@ -7,9 +7,9 @@ package com.bank.view;
 import java.awt.event.ActionEvent;
 
 import com.bank.controller.DepositController;
+import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
-import com.framework.finco.Mediator;
 import com.framework.finco.view.TransactionDialog;
 
 /**

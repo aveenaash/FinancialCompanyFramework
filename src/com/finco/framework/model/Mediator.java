@@ -1,4 +1,4 @@
-package com.framework.finco;
+package com.finco.framework.model;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;

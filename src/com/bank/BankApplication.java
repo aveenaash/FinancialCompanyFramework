@@ -15,9 +15,9 @@ import com.bank.controller.DepositController;
 import com.bank.controller.PersonController;
 import com.bank.controller.WithdrawController;
 import com.finco.framework.controller.AbstractController;
+import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
-import com.framework.finco.Mediator;
 
 /**
  *

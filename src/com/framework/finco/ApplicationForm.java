@@ -11,6 +11,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import com.finco.framework.model.Customer;
+import com.finco.framework.model.Mediator;
 import com.finco.framework.model.account.IAccount;
 import com.framework.finco.controller.AccountController;
 import com.framework.finco.controller.DepositController;
