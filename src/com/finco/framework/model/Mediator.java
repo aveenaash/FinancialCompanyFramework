@@ -3,6 +3,8 @@ package com.finco.framework.model;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import com.framework.finco.ApplicationFactory;
+
 
 public class Mediator {
     
@@ -51,12 +53,12 @@ public class Mediator {
         }
     }
     
-    public void notifyView(boolean visible, int totalAcccount){
-    	
+    public void notifyView(boolean visible){
+    	int totalNumberOfAcccount = ApplicationFactory.getabstractControllerIntance().getAccountList().size();
     	System.out.println("notify======"+JButton_Deposit.getText()+" ==== "+JButton_Withdraw.getText());
     	JButton_Deposit.setEnabled(visible);
     	JButton_Withdraw.setEnabled(visible);
-    	if(totalAcccount > 0){
+    	if(totalNumberOfAcccount > 0){
     		JButton_Addinterest.setEnabled(true);
     	}else{
     		JButton_Addinterest.setEnabled(false);

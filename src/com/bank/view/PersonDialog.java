@@ -13,10 +13,6 @@ import com.bank.controller.PersonController;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.view.AccountDialog;
 
-/**
- *
- * @author naimi_000
- */
 public class PersonDialog extends AccountDialog {
 
     public PersonDialog(ApplicationForm parent) {

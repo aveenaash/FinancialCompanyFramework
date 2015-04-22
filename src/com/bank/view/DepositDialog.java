@@ -30,7 +30,7 @@ public class DepositDialog extends TransactionDialog {
         new DepositController().deposit(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
-        Mediator.getInstance().notifyView(false, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
+        Mediator.getInstance().notifyView(false);
     }
 
 }

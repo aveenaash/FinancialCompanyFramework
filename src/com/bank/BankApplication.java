@@ -9,6 +9,8 @@ package com.bank;
 import java.awt.event.ActionListener;
 
 import javax.swing.UIManager;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import com.bank.controller.CompanyController;
 import com.bank.controller.DepositController;
@@ -19,15 +21,14 @@ import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
 
-/**
- *
- * @author naimi_000
- */
+
 public class BankApplication extends ApplicationForm {
 
     static {
         //FactoryProducer.addAbstractFactory(MyAccountType.MYAC, new MyAccountFactory());
     }
+    
+    
 
     public static BankApplication bank;
 
@@ -61,6 +62,30 @@ public class BankApplication extends ApplicationForm {
         JButton_PerAC.addActionListener(new PersonController());
         JButton_Deposit.addActionListener(new DepositController());
         JButton_Withdraw.addActionListener(new WithdrawController());
+        
+        table.getSelectionModel().addListSelectionListener(
+				new ListSelectionListener() {
+
+					@Override
+					public void valueChanged(ListSelectionEvent e) {
+						System.out.println("Hit Select listener ========== ");
+						//double amount = Double.parseDouble(JTextField_Deposit.getText());
+						//Mediator.getInstance().notifyView(balance, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
+						Mediator.getInstance().notifyView(true);
+						
+						if (e.getValueIsAdjusting()) {
+							return;
+						}
+						try {
+							//model.send(new  Message(AccountManager.ACCOUNT_SELECTED, true));
+							
+						} catch (Exception ee) {
+							ee.printStackTrace();
+						}
+					}
+				});
+        
+        
     }
 
     static public void main(String args[]) {
@@ -78,7 +103,7 @@ public class BankApplication extends ApplicationForm {
             BankApplication.getInstance().setVisible(true);
 
             ApplicationFactory.getabstractControllerIntance().loadDummyData();   
-            Mediator.getInstance().notifyView(false, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
+            Mediator.getInstance().notifyView(false);
             
         } catch (Throwable t) {
             t.printStackTrace();

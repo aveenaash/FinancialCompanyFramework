@@ -14,10 +14,6 @@ import com.framework.finco.view.AccountDialog;
 
 import java.awt.event.ActionEvent;
 
-/**
- *
- * @author naimi_000
- */
 public class CompanyDialog extends AccountDialog {
 
     public CompanyDialog(ApplicationForm parent) {

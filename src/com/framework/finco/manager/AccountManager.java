@@ -77,7 +77,7 @@ public class AccountManager {
 		account.addEntry(transactionEntry);
 		
 		accountList.add(account);
-		
+		 
 		
 		account = new SavingAccount(getAccountNumber());
 		

@@ -15,10 +15,6 @@ import com.framework.finco.view.TransactionDialog;
 
 import java.awt.event.ActionEvent;
 
-/**
- *
- * @author naimi_000
- */
 public class WithdrawDialog extends TransactionDialog {
 
     public WithdrawDialog(ApplicationForm parent, String aaccnr) {
@@ -33,6 +29,6 @@ public class WithdrawDialog extends TransactionDialog {
         new WithdrawController().withdraw(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
-        Mediator.getInstance().notifyView(false, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
+        Mediator.getInstance().notifyView(false);
     }
 }

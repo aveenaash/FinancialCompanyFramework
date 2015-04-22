@@ -128,8 +128,8 @@ public class ApplicationForm extends JFrame {
 						//System.out.println("Hit Select listener"+e.getSource().toString());
 						//double amount = Double.parseDouble(JTextField_Deposit.getText());
 						//Mediator.getInstance().notifyView(balance, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
-						Mediator.getInstance().notifyView(true, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
-						
+						//Mediator.getInstance().notifyView(true);
+						System.out.println("Hit Select listener 22222========== ");
 						if (e.getValueIsAdjusting()) {
 							return;
 						}
