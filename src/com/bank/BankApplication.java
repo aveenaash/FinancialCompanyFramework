@@ -16,6 +16,7 @@ import com.bank.controller.CompanyController;
 import com.bank.controller.DepositController;
 import com.bank.controller.PersonController;
 import com.bank.controller.WithdrawController;
+import com.bank.model.MyMediator;
 import com.finco.framework.controller.AbstractController;
 import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
@@ -28,10 +29,10 @@ public class BankApplication extends ApplicationForm {
         //FactoryProducer.addAbstractFactory(MyAccountType.MYAC, new MyAccountFactory());
     }
     
-    
-
     public static BankApplication bank;
-
+    
+    protected MyMediator mediator;
+    
     public static BankApplication getInstance() {
         if (bank == null) {
             bank = new BankApplication();
@@ -42,7 +43,10 @@ public class BankApplication extends ApplicationForm {
     }
 
     public BankApplication() {
+        super();
         setTitle("Bank Application");
+        
+        mediator = MyMediator.getInstance();
 
         //remove all listener that we have first
         for (ActionListener al : JButton_PerAC.getActionListeners()) {
@@ -63,27 +67,17 @@ public class BankApplication extends ApplicationForm {
         JButton_Deposit.addActionListener(new DepositController());
         JButton_Withdraw.addActionListener(new WithdrawController());
         
+        mediator.registerBtnAddinterest(JButton_Addinterest);
+        mediator.registerBtnDeposit(JButton_Deposit);
+        mediator.registerBtnWithdraw(JButton_Withdraw);
+        
         table.getSelectionModel().addListSelectionListener(
-				new ListSelectionListener() {
-
-					@Override
-					public void valueChanged(ListSelectionEvent e) {
-						System.out.println("Hit Select listener ========== ");
-						//double amount = Double.parseDouble(JTextField_Deposit.getText());
-						//Mediator.getInstance().notifyView(balance, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
-						Mediator.getInstance().notifyView(true);
-						
-						if (e.getValueIsAdjusting()) {
-							return;
-						}
-						try {
-							//model.send(new  Message(AccountManager.ACCOUNT_SELECTED, true));
-							
-						} catch (Exception ee) {
-							ee.printStackTrace();
-						}
-					}
-				});
+            new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                            MyMediator.getInstance().notifyView(true);
+                    }
+            });
         
         
     }
@@ -103,7 +97,7 @@ public class BankApplication extends ApplicationForm {
             BankApplication.getInstance().setVisible(true);
 
             ApplicationFactory.getabstractControllerIntance().loadDummyData();   
-            Mediator.getInstance().notifyView(false);
+            MyMediator.getInstance().notifyView(false);
             
         } catch (Throwable t) {
             t.printStackTrace();

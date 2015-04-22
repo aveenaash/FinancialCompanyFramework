@@ -8,9 +8,9 @@ import com.framework.finco.ApplicationFactory;
 
 public class Mediator {
     
-    JButton JButton_Deposit;
-    JButton JButton_Withdraw;
-    JButton JButton_Addinterest;
+    protected JButton JButton_Deposit;
+    protected JButton JButton_Withdraw;
+    protected JButton JButton_Addinterest;
     
     private static Mediator instance;
 
@@ -55,7 +55,7 @@ public class Mediator {
     
     public void notifyView(boolean visible){
     	int totalNumberOfAcccount = ApplicationFactory.getabstractControllerIntance().getAccountList().size();
-    	System.out.println("notify======"+JButton_Deposit.getText()+" ==== "+JButton_Withdraw.getText());
+    	//System.out.println("notify======"+JButton_Deposit.getText()+" ==== "+JButton_Withdraw.getText());
     	JButton_Deposit.setEnabled(visible);
     	JButton_Withdraw.setEnabled(visible);
     	if(totalNumberOfAcccount > 0){

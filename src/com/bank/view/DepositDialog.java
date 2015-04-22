@@ -7,6 +7,7 @@ package com.bank.view;
 import java.awt.event.ActionEvent;
 
 import com.bank.controller.DepositController;
+import com.bank.model.MyMediator;
 import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
@@ -30,7 +31,7 @@ public class DepositDialog extends TransactionDialog {
         new DepositController().deposit(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
-        Mediator.getInstance().notifyView(false);
+        MyMediator.getInstance().notifyView(false);
     }
 
 }

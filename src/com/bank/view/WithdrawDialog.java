@@ -8,6 +8,7 @@ package com.bank.view;
 
 import com.bank.controller.DepositController;
 import com.bank.controller.WithdrawController;
+import com.bank.model.MyMediator;
 import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
@@ -29,6 +30,6 @@ public class WithdrawDialog extends TransactionDialog {
         new WithdrawController().withdraw(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
-        Mediator.getInstance().notifyView(false);
+        MyMediator.getInstance().notifyView(false);
     }
 }

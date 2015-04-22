@@ -6,3 +6,4 @@ bin/*
 /build/
 build.xml
 manifest.mf
+/dist/
