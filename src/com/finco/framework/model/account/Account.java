@@ -103,4 +103,9 @@ public class Account extends Observable implements IAccount {
 		return null;
 	}
 
+        @Override
+        public double getInterestAmount() {
+            return 0.1*getBalance();
+        }
+
 }

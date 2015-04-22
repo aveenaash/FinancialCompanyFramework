@@ -19,5 +19,7 @@ public interface IAccount {
 	
 	String getType();
 	List<TransactionEntry> getTransactionList();
+        
+        double getInterestAmount();
 
 }

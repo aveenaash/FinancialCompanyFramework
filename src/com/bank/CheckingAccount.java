@@ -4,7 +4,9 @@ import com.finco.framework.model.account.Account;
 
 public class CheckingAccount extends Account {
 
-	public CheckingAccount() {
+	private double interestRate = 0.04;
+
+        public CheckingAccount() {
 		super();
 	}
 
@@ -16,5 +18,21 @@ public class CheckingAccount extends Account {
 	public String getType() {
 		return "Ch";
 	}
+        
+        public double getInterestRate() {
+            return interestRate;
+        }
+
+        public void setInterestRate(double interestRate) {
+            this.interestRate = interestRate;
+        }
+        
+        
+        @Override
+        public double getInterestAmount() {
+                System.out.println("Balance  "+getBalance());
+                System.out.println("Interest  "+interestRate*getBalance());
+                return interestRate*getBalance();
+        }
 
 }

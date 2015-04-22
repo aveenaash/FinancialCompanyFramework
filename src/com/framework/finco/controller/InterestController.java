@@ -5,6 +5,7 @@
  */
 package com.framework.finco.controller;
 
+import com.framework.finco.ApplicationFactory;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +27,7 @@ public class InterestController implements Controller {
     public void actionPerformed(ActionEvent ae) {
         try {
             //accountManager.addInterest();
+            ApplicationFactory.getabstractControllerIntance().addInterestToAllAccount();
        } catch (Exception ex) {
             Logger.getLogger(InterestController.class.getName()).log(Level.SEVERE, null, ex);
         }
