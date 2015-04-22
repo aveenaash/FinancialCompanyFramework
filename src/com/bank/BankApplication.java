@@ -17,6 +17,7 @@ import com.bank.controller.WithdrawController;
 import com.finco.framework.controller.AbstractController;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
+import com.framework.finco.Mediator;
 
 /**
  *
@@ -77,6 +78,7 @@ public class BankApplication extends ApplicationForm {
             BankApplication.getInstance().setVisible(true);
 
             ApplicationFactory.getabstractControllerIntance().loadDummyData();   
+            Mediator.getInstance().notifyView(false, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
             
         } catch (Throwable t) {
             t.printStackTrace();
