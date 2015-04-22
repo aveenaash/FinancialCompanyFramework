@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMultipart;
 
 /**
  *
- * @author MdTasiddiqul
+ * @author 
  */
 
 public class Email {

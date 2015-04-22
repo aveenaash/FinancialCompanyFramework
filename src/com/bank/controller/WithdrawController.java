@@ -9,6 +9,8 @@ package com.bank.controller;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.bank.view.WithdrawDialog;
 import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.Deposit;
@@ -20,7 +22,7 @@ import com.framework.finco.ApplicationForm;
 
 /**
  *
- * @author james
+ * @author 
  */
 public class WithdrawController extends com.framework.finco.controller.WithdrawController{
 
@@ -43,8 +45,14 @@ public class WithdrawController extends com.framework.finco.controller.WithdrawC
     	SearchAccount searchAccount = new SearchAccount(accounts);
 		List<Account> searchedAccounts = searchAccount.search(accountNumber);
 		if(searchedAccounts.size() == 1){
-			searchedAccounts.get(0).addEntry(new TransactionEntry(new Withdraw(), amount, note));
-			System.out.print("Withdraw amount : "+amount);
+			if(searchedAccounts.get(0).getBalance() > amount){
+				searchedAccounts.get(0).addEntry(new TransactionEntry(new Withdraw(), amount, note));
+				System.out.print("Withdraw amount : "+amount);
+			}else{
+				System.out.print("You do not have enough amount.");
+				ApplicationForm.showMessage("You do not have that amount to withdraw.");
+			}
+			
 		}else{
 			System.out.print("Account found "+searchedAccounts.size());
 		}

@@ -11,6 +11,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import com.finco.framework.model.Customer;
+import com.finco.framework.model.Mediator;
 import com.finco.framework.model.account.IAccount;
 import com.framework.finco.controller.AccountController;
 import com.framework.finco.controller.DepositController;
@@ -18,6 +19,7 @@ import com.framework.finco.controller.ExitController;
 import com.framework.finco.controller.InterestController;
 import com.framework.finco.controller.WithdrawController;
 import com.framework.finco.manager.AccountManager;
+import com.sun.media.jfxmedia.Media;
 
 /**
  * A basic JFC based application.
@@ -42,9 +44,14 @@ public class ApplicationForm extends JFrame {
 	protected Object rowdata[];
 
 	protected String selectedColumn = "acctNumber";
+	
+	protected Mediator mediator;
+	
 
 	public ApplicationForm() {
 
+		 mediator = Mediator.getInstance();
+		 
 		myframe = this;
 		setTitle("Account Application");
 
@@ -87,15 +94,19 @@ public class ApplicationForm extends JFrame {
 		JButton_Deposit.setEnabled(true);
 		JButton_Withdraw.setText("Withdraw");
 		JPanel1.add(JButton_Withdraw);
-		JButton_Withdraw.setEnabled(true);
+		JButton_Withdraw.setEnabled(false);
 		JButton_Addinterest.setBounds(448, 20, 106, 33);
 		JButton_Addinterest.setText("Add interest");
-		JButton_Addinterest.setEnabled(true);
+		JButton_Addinterest.setEnabled(false);
 		JPanel1.add(JButton_Addinterest);
 		JButton_Withdraw.setBounds(468, 164, 96, 33);
 		JButton_Exit.setText("Exit");
 		JPanel1.add(JButton_Exit);
 		JButton_Exit.setBounds(468, 248, 96, 31);
+		
+		mediator.registerBtnAddinterest(JButton_Addinterest);
+		mediator.registerBtnDeposit(JButton_Deposit);
+		mediator.registerBtnWithdraw(JButton_Withdraw);
 
 		JButton_PerAC.setActionCommand("jbutton");
 
@@ -114,12 +125,17 @@ public class ApplicationForm extends JFrame {
 
 					@Override
 					public void valueChanged(ListSelectionEvent e) {
+						//System.out.println("Hit Select listener"+e.getSource().toString());
+						//double amount = Double.parseDouble(JTextField_Deposit.getText());
+						//Mediator.getInstance().notifyView(balance, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
+						Mediator.getInstance().notifyView(true, ApplicationFactory.getabstractControllerIntance().getAccountList().size());
+						
 						if (e.getValueIsAdjusting()) {
 							return;
 						}
 						try {
-							// model.send(new
-							// Message(AccountManager.ACCOUNT_SELECTED, true));
+							//model.send(new  Message(AccountManager.ACCOUNT_SELECTED, true));
+							
 						} catch (Exception ee) {
 							ee.printStackTrace();
 						}
@@ -156,6 +172,11 @@ public class ApplicationForm extends JFrame {
 			}
 
 		});
+	}
+	
+	
+	public static void showMessage(String message){
+		JOptionPane.showMessageDialog(null, message);
 	}
 
 	/**
