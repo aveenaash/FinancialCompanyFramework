@@ -30,7 +30,7 @@ public class AccountFactory {
 			
 			return account;
 		}
-		else if(accType == AccType.CHECKING){
+		else if(accType == AccType.SAVING){
 			Account account = new SavingAccount();
 
 			if(observer != null){
@@ -39,7 +39,7 @@ public class AccountFactory {
 			
 			return account;
 		}
-		return null;
+                return null;
 	}
 	
 }

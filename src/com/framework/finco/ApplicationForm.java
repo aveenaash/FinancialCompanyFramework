@@ -216,6 +216,10 @@ public class ApplicationForm extends JFrame {
 		}
 		return accnr;
 	}
+        
+        public void callApp(ApplicationForm applicationForm){
+        
+        }
 
 	/**
 	 * *************************************************** The entry point for
@@ -224,6 +228,8 @@ public class ApplicationForm extends JFrame {
 	 * ***************************************************
 	 */
 	static public void main(String args[]) {
+                //ApplicationForm applicationForm = new ApplicationForm();
+                //applicationForm.callApp();
 		try {
 			// Add the following code if you want the Look and Feel
 			// to be set to the Look and Feel of the native system.
