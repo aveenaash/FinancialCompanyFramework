@@ -5,24 +5,32 @@ import java.util.Map;
 import java.util.Observer;
 
 import com.bank.AccType;
-import com.bank.GoldAccount;
-import com.bank.SilverAccount;
 
 public class AccountFactory {
 
 	public static Account account;
 	public static Observer observer;
-	public static Map<AccType, Account>hashmap=new HashMap<>();
-	
+//	public static Map<AccType, Account>hashmap=new HashMap<>();
+//	
 //	static
 //	{
-//		hashmap.put(AccType.CHECKING, new GoldAccount());
-//		hashmap.put(AccType.SAVING, new SilverAccount());
+//		hashmap.put(AccType.CHECKING, new CheckingAccount());
+//		hashmap.put(AccType.SAVING, new SavingAccount());
 //	}
 	
 	public static Account getInstance(AccType accType){
+                Account account = new Account();
+			
+                if(observer != null){
+                        account.addObserver(observer);
+                }
+
+                return account;
+        }
+        
+//        public static Account getInstance(AccType accType){
 //		if(accType == AccType.CHECKING){
-//			Account account = new GoldAccount();
+//			Account account = new CheckingAccount();
 //			
 //			if(observer != null){
 //				account.addObserver(observer);
@@ -31,7 +39,7 @@ public class AccountFactory {
 //			return account;
 //		}
 //		else if(accType == AccType.SAVING){
-//			Account account = new SilverAccount();
+//			Account account = new SavingAccount();
 //
 //			if(observer != null){
 //				account.addObserver(observer);
@@ -39,7 +47,7 @@ public class AccountFactory {
 //			
 //			return account;
 //		}
-                return new Account();
-	}
+//                return null;
+//	}
 	
 }

@@ -11,9 +11,7 @@ import com.bank.GoldAccount;
 import com.bank.SilverAccount;
 
 public class CCAccountFactory extends AccountFactory{
-
-	public static Account account;
-	public static Observer observer;
+        
 	public static Map<AccType, Account>hashmap=new HashMap<>();
 	
 	static
