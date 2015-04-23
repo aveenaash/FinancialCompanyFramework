@@ -7,6 +7,7 @@ package com.bank.view;
 import java.awt.event.ActionEvent;
 
 import com.bank.controller.DepositController;
+import com.bank.controller.WithdrawController;
 import com.bank.model.MyMediator;
 import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
@@ -19,16 +20,19 @@ import com.framework.finco.view.TransactionDialog;
  */
 public class DepositDialog extends TransactionDialog {
 
-    public DepositDialog(ApplicationForm parent, String aaccnr) {
+    DepositController dc;
+    public DepositDialog(DepositController dc, ApplicationForm parent, String aaccnr) {
         super(parent, aaccnr);
         setTitle("Deposit Money");
+        this.dc = dc;
     }
 
     @Override
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         String name = JTextField_NAME.getText();
         double amount = Double.parseDouble(JTextField_Deposit.getText());
-        new DepositController().deposit(this.getAccnr(), amount, name);
+        //new DepositController().deposit(this.getAccnr(), amount, name);
+        dc.deposit(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
         MyMediator.getInstance().notifyView(false);

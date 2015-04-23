@@ -39,7 +39,7 @@ public class CompanyController extends AccountController {
 	public void actionPerformed(ActionEvent ae) {
 		ApplicationForm accountFrm = ApplicationFactory
 				.getFinancialAppFormIntance();
-		CompanyDialog pac = new CompanyDialog(accountFrm);
+		CompanyDialog pac = new CompanyDialog(this, accountFrm);
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
 	}

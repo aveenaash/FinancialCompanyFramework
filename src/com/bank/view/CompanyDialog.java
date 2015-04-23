@@ -16,9 +16,11 @@ import java.awt.event.ActionEvent;
 
 public class CompanyDialog extends AccountDialog {
 
-    public CompanyDialog(ApplicationForm parent) {
+    private CompanyController cc;
+    public CompanyDialog(CompanyController cc, ApplicationForm parent) {
         super(parent);
         setTitle("Add Company Account");
+        this.cc = cc;
 
         JLabel6.setText("No of employees");
         getContentPane().add(JLabel6);
@@ -39,10 +41,11 @@ public class CompanyDialog extends AccountDialog {
         noe = JTextField_BD.getText();
         em = JTextField_EM.getText();
         if (JRadioButton_Chk.isSelected()) {
-            new CompanyController().createAccount(AccType.CHECKING, name, ct, st, str, zip, acnr, noe, em);
+            //new CompanyController().createAccount(AccType.CHECKING, name, ct, st, str, zip, acnr, noe, em);
+            this.cc.createAccount(AccType.CHECKING, name, ct, st, str, zip, acnr, noe, em);
         } else if (JRadioButton_Sav.isSelected()) {
-           new CompanyController().createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, noe, em);
-
+           //new CompanyController().createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, noe, em);
+            this.cc.createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, noe, em);
         }
         dispose();
         setVisible(false);

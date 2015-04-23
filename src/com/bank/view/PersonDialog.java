@@ -15,10 +15,11 @@ import com.framework.finco.view.AccountDialog;
 
 public class PersonDialog extends AccountDialog {
 
-    public PersonDialog(ApplicationForm parent) {
+    private PersonController pc;
+    public PersonDialog(PersonController pc, ApplicationForm parent) {
         super(parent);
         setTitle("Add Person Account");
-
+        this.pc = pc;
         JLabel6.setText("Birthdate");
         getContentPane().add(JLabel6);
         JLabel6.setForeground(java.awt.Color.black);
@@ -38,9 +39,11 @@ public class PersonDialog extends AccountDialog {
         bd = JTextField_BD.getText();
         em = JTextField_EM.getText();
         if (JRadioButton_Chk.isSelected()) {
-            new PersonController().createAccount(AccType.CHECKING,name, ct, st, str, zip, acnr, bd, em);
+            //new PersonController().createAccount(AccType.CHECKING,name, ct, st, str, zip, acnr, bd, em);
+            this.pc.createAccount(AccType.CHECKING,name, ct, st, str, zip, acnr, bd, em);
         } else if (JRadioButton_Sav.isSelected()) {
-            new PersonController().createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, bd, em);
+            //new PersonController().createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, bd, em);
+            this.pc.createAccount(AccType.SAVING, name, ct, st, str, zip, acnr, bd, em);
         }
         dispose();
         setVisible(false);

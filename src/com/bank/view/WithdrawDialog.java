@@ -18,16 +18,19 @@ import java.awt.event.ActionEvent;
 
 public class WithdrawDialog extends TransactionDialog {
 
-    public WithdrawDialog(ApplicationForm parent, String aaccnr) {
+    WithdrawController wc;
+    public WithdrawDialog(WithdrawController wc, ApplicationForm parent, String aaccnr) {
         super(parent, aaccnr);
         setTitle("Withdraw Money");
+        this.wc = wc;
     }
 
     @Override
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         String name = JTextField_NAME.getText();
         double amount = Double.parseDouble(JTextField_Deposit.getText());
-        new WithdrawController().withdraw(this.getAccnr(), amount, name);
+        //new WithdrawController().withdraw(this.getAccnr(), amount, name);
+        wc.withdraw(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
         MyMediator.getInstance().notifyView(false);

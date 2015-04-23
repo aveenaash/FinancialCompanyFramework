@@ -34,7 +34,7 @@ public class WithdrawController extends com.framework.finco.controller.WithdrawC
     public void actionPerformed(ActionEvent ae) {
     	ApplicationForm accountFrm=ApplicationFactory.getFinancialAppFormIntance();
         String accnr = accountFrm.getAccountNo();
-        WithdrawDialog dep = new WithdrawDialog(accountFrm, accnr);
+        WithdrawDialog dep = new WithdrawDialog(this, accountFrm, accnr);
         dep.setBounds(430, 15, 275, 140);
         dep.show();
     }

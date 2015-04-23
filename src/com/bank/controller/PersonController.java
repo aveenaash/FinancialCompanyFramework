@@ -35,7 +35,7 @@ public class PersonController extends AccountController {
     @Override
     public void actionPerformed(ActionEvent ae) {
     	ApplicationForm accountFrm=ApplicationFactory.getFinancialAppFormIntance();
-        PersonDialog pac = new PersonDialog(accountFrm);
+        PersonDialog pac = new PersonDialog(this, accountFrm);
         pac.setBounds(450, 20, 300, 330);
         pac.show();
     }

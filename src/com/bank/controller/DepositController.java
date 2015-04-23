@@ -32,7 +32,7 @@ public class DepositController extends com.framework.finco.controller.DepositCon
     public void actionPerformed(ActionEvent ae) {
     	ApplicationForm accountFrm=ApplicationFactory.getFinancialAppFormIntance();
         String accnr = accountFrm.getAccountNo();
-        DepositDialog dep = new DepositDialog(accountFrm, accnr);
+        DepositDialog dep = new DepositDialog(this,accountFrm, accnr);
         dep.setBounds(430, 15, 275, 140);
         dep.show();
     }
@@ -41,7 +41,7 @@ public class DepositController extends com.framework.finco.controller.DepositCon
     public void deposit(String accountNumber, double amount, String note){
     	//Account account = new Account();
     	List<Account> accounts = ApplicationFactory.getabstractControllerIntance().getAccountList();
-    	SearchAccount searchAccount = new SearchAccount(accounts);
+    	SearchAccount searchAccount = new SearchAccount(accounts);        
 		List<Account> searchedAccounts = searchAccount.search(accountNumber);
 		if(searchedAccounts.size() == 1){
 			searchedAccounts.get(0).addEntry(new TransactionEntry(new Deposit(), amount, note));

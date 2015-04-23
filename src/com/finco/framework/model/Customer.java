@@ -8,15 +8,16 @@ import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.IAccount;
 
 public abstract class Customer implements ICustomer{
-
+    
 	private String name;
 	private Address address;
 	private Account account;
 	
 	public Customer(){
-		address=new Address();		
+		address = new Address();
+                account = new Account();
 	}
-		
+        
 	public Customer(String name, String street, String city, String state, String zip, String email){
 		this.name = name;
 		address = new Address(street, city, state, zip, email);
