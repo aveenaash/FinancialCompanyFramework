@@ -45,9 +45,9 @@ public class DepositController extends com.framework.finco.controller.DepositCon
 		List<Account> searchedAccounts = searchAccount.search(accountNumber);
 		if(searchedAccounts.size() == 1){
 			searchedAccounts.get(0).addEntry(new TransactionEntry(new Deposit(), amount, note));
-			System.out.print("Desite amount : "+amount);
+			//System.out.print("Desite amount : "+amount);
 		}else{
-			System.out.print("Account found "+searchedAccounts.size());
+			//System.out.print("Account found "+searchedAccounts.size());
 		}
 		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
     }

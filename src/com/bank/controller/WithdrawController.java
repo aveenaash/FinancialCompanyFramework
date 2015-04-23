@@ -47,14 +47,14 @@ public class WithdrawController extends com.framework.finco.controller.WithdrawC
 		if(searchedAccounts.size() == 1){
 			if(searchedAccounts.get(0).getBalance() > amount){
 				searchedAccounts.get(0).addEntry(new TransactionEntry(new Withdraw(), amount, note));
-				System.out.print("Withdraw amount : "+amount);
+				//System.out.print("Withdraw amount : "+amount);
 			}else{
-				System.out.print("You do not have enough amount.");
+				//System.out.print("You do not have enough amount.");
 				ApplicationForm.showMessage("You do not have that amount to withdraw.");
 			}
 			
 		}else{
-			System.out.print("Account found "+searchedAccounts.size());
+			//System.out.print("Account found "+searchedAccounts.size());
 		}
 		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
     }

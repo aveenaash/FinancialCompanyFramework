@@ -6,11 +6,16 @@
 package com.framework.finco.controller;
 
 
+import com.finco.framework.model.account.Account;
+import com.finco.framework.model.account.Deposit;
+import com.finco.framework.model.account.TransactionEntry;
+import com.finco.framework.search.SearchAccount;
 import java.awt.event.ActionEvent;
 
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.view.TransactionDialog;
+import java.util.List;
 
 /**
  *
@@ -32,6 +37,21 @@ public class DepositController implements Controller {
         dep.setBounds(430, 15, 275, 140);
         dep.show();
     }
+    
+//    public void deposit(String accountNumber, double amount, String note){
+//    	//Account account = new Account();
+//    	List<Account> accounts = ApplicationFactory.getabstractControllerIntance().getAccountList();
+//    	SearchAccount searchAccount = new SearchAccount(accounts);        
+//		List<Account> searchedAccounts = searchAccount.search(accountNumber);
+//		if(searchedAccounts.size() == 1){
+//			searchedAccounts.get(0).addEntry(new TransactionEntry(new Deposit(), amount, note));
+//			//System.out.print("Desite amount : "+amount);
+//		}else{
+//			//System.out.print("Account found "+searchedAccounts.size());
+//		}
+//		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
+//    }
+    
 //
 //    public DepositController(String accrno, String amount) {
 //        this();
