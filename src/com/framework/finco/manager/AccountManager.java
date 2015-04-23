@@ -7,8 +7,8 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Observable;
 
-import com.bank.CheckingAccount;
-import com.bank.SavingAccount;
+import com.bank.GoldAccount;
+import com.bank.SilverAccount;
 import com.finco.framework.model.Customer;
 import com.finco.framework.model.CustomerFactory;
 import com.finco.framework.model.account.Account;
@@ -64,7 +64,7 @@ public class AccountManager {
     }
 
     public void loadDummyData() {
-        Account account = new CheckingAccount();
+        Account account = new GoldAccount();
         account.setAccountNumber(getAccountNumber());
         Customer personal = CustomerFactory.getInstance("Personal", "John Doe", "1000 N 4th Street", "Fairfield", "Iowa", "52557", new Date(1990, 8, 19), "john.doe@gmail.com");
         personal.setAccount(account);
@@ -81,7 +81,7 @@ public class AccountManager {
 
         accountList.add(account);
 
-        account = new SavingAccount(getAccountNumber());
+        account = new SilverAccount(getAccountNumber());
 
         Customer company = CustomerFactory.getInstance("Company", "Luiz Rodrigage", "1000 N 4th Street", "Fairfield", "Iowa", "52557", null, "luiz.rodrigage@gmail.com");
 

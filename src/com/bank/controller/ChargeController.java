@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import com.bank.view.WithdrawDialog;
+import com.bank.view.ChargeDialog;
 import com.finco.framework.model.account.Account;
 import com.finco.framework.model.account.Deposit;
 import com.finco.framework.model.account.TransactionEntry;
@@ -24,9 +24,9 @@ import com.framework.finco.ApplicationForm;
  *
  * @author 
  */
-public class WithdrawController extends com.framework.finco.controller.WithdrawController{
+public class ChargeController extends com.framework.finco.controller.WithdrawController{
 
-    public WithdrawController() {
+    public ChargeController() {
         super();
     }
 
@@ -34,7 +34,7 @@ public class WithdrawController extends com.framework.finco.controller.WithdrawC
     public void actionPerformed(ActionEvent ae) {
     	ApplicationForm accountFrm=ApplicationFactory.getFinancialAppFormIntance();
         String accnr = accountFrm.getAccountNo();
-        WithdrawDialog dep = new WithdrawDialog(this, accountFrm, accnr);
+        ChargeDialog dep = new ChargeDialog(this, accountFrm, accnr);
         dep.setBounds(430, 15, 275, 140);
         dep.show();
     }
@@ -45,7 +45,7 @@ public class WithdrawController extends com.framework.finco.controller.WithdrawC
     	SearchAccount searchAccount = new SearchAccount(accounts);
 		List<Account> searchedAccounts = searchAccount.search(accountNumber);
 		if(searchedAccounts.size() == 1){
-			if(searchedAccounts.get(0).getBalance() > amount){
+			if(searchedAccounts.get(0).getBalance() >= amount){
 				searchedAccounts.get(0).addEntry(new TransactionEntry(new Withdraw(), amount, note));
 				//System.out.print("Withdraw amount : "+amount);
 			}else{

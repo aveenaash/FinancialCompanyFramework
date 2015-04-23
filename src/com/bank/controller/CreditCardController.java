@@ -10,7 +10,8 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 
 import com.bank.AccType;
-import com.bank.view.PersonDialog;
+import com.bank.model.CCAccountFactory;
+import com.bank.view.CreditCardDialog;
 
 import com.finco.framework.model.Customer;
 
@@ -26,23 +27,23 @@ import com.framework.finco.controller.AccountController;
  *
  * @author
  */
-public class PersonController extends AccountController {
+public class CreditCardController extends AccountController {
 
-    public PersonController() {
+    public CreditCardController() {
         super();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
     	ApplicationForm accountFrm=ApplicationFactory.getFinancialAppFormIntance();
-        PersonDialog pac = new PersonDialog(this, accountFrm);
+        CreditCardDialog pac = new CreditCardDialog(this, accountFrm);
         pac.setBounds(450, 20, 300, 330);
         pac.show();
     }
 
     public void createAccount(AccType acctype,String name, String ct, String st, String str, String zip, String acnr, String bd, String em) {
     	
-    	Account account = AccountFactory.getInstance(acctype);
+    	Account account = CCAccountFactory.getInstance(acctype);
     	account.setAccountNumber(acnr);			
 		Customer personal = CustomerFactory.getInstance("Personal");
 		personal.setName(name);
