@@ -79,6 +79,7 @@ public class AccountDialog extends JDialog {
         JTextField_ZIP.setBounds(84, 180, 156, 20);
         getContentPane().add(JTextField_BD);
         JTextField_BD.setBounds(84, 204, 156, 20);
+        JTextField_BD.setToolTipText("Date(MM/DD/YYYY)");
         getContentPane().add(JTextField_EM);
         JTextField_EM.setBounds(84, 228, 156, 20);
         JButton_OK.setText("OK");

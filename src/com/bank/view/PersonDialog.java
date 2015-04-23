@@ -21,6 +21,7 @@ public class PersonDialog extends AccountDialog {
         setTitle("Add Person Account");
         this.pc = pc;
         JLabel6.setText("Birthdate");
+        JLabel6.setToolTipText("Date(MM/DD/YYYY)");
         getContentPane().add(JLabel6);
         JLabel6.setForeground(java.awt.Color.black);
         JLabel6.setBounds(12, 204, 96, 24);
