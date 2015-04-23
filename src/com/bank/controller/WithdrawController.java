@@ -45,7 +45,7 @@ public class WithdrawController extends com.framework.finco.controller.WithdrawC
     	SearchAccount searchAccount = new SearchAccount(accounts);
 		List<Account> searchedAccounts = searchAccount.search(accountNumber);
 		if(searchedAccounts.size() == 1){
-			if(searchedAccounts.get(0).getBalance() > amount){
+			if(searchedAccounts.get(0).getBalance() >= amount){
 				searchedAccounts.get(0).addEntry(new TransactionEntry(new Withdraw(), amount, note));
 				//System.out.print("Withdraw amount : "+amount);
 			}else{

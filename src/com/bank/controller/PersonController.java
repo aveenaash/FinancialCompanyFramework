@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 
 import com.bank.AccType;
+import com.bank.model.BankAccountFactory;
 import com.bank.view.PersonDialog;
 
 import com.finco.framework.model.Customer;
@@ -42,7 +43,7 @@ public class PersonController extends AccountController {
 
     public void createAccount(AccType acctype,String name, String ct, String st, String str, String zip, String acnr, String bd, String em) {
     	
-    	Account account = AccountFactory.getInstance(acctype);
+    	Account account = BankAccountFactory.getInstance(acctype);
     	account.setAccountNumber(acnr);			
 		Customer personal = CustomerFactory.getInstance("Personal");
 		personal.setName(name);

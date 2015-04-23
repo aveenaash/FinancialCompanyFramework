@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 
 import com.bank.AccType;
+import com.bank.model.BankAccountFactory;
 import com.bank.view.CompanyDialog;
 import com.finco.framework.model.Company;
 import com.finco.framework.model.Customer;
@@ -48,7 +49,7 @@ public class CompanyController extends AccountController {
 			String st, String str, String zip, String acnr, String noe,
 			String em) {
 
-		Account account = AccountFactory.getInstance(acctype);
+		Account account = BankAccountFactory.getInstance(acctype);
 		account.setAccountNumber(acnr);
 		Customer company = CustomerFactory.getInstance("Company");
 		company.setName(name);
