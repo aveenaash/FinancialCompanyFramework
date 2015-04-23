@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
+import com.framework.finco.view.DepositDialog;
 import com.framework.finco.view.TransactionDialog;
 import java.util.List;
 
@@ -33,24 +34,24 @@ public class DepositController implements Controller {
     public void actionPerformed(ActionEvent ae) {
         ApplicationForm accountFrm = ApplicationFactory.getFinancialAppFormIntance();
         String accnr = accountFrm.getAccountNo();
-        TransactionDialog dep = new TransactionDialog(accountFrm, accnr);
+        TransactionDialog dep = new DepositDialog(this, accountFrm, accnr);
         dep.setBounds(430, 15, 275, 140);
         dep.show();
     }
     
-//    public void deposit(String accountNumber, double amount, String note){
-//    	//Account account = new Account();
-//    	List<Account> accounts = ApplicationFactory.getabstractControllerIntance().getAccountList();
-//    	SearchAccount searchAccount = new SearchAccount(accounts);        
-//		List<Account> searchedAccounts = searchAccount.search(accountNumber);
-//		if(searchedAccounts.size() == 1){
-//			searchedAccounts.get(0).addEntry(new TransactionEntry(new Deposit(), amount, note));
-//			//System.out.print("Desite amount : "+amount);
-//		}else{
-//			//System.out.print("Account found "+searchedAccounts.size());
-//		}
-//		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
-//    }
+    public void deposit(String accountNumber, double amount, String note){
+    	//Account account = new Account();
+    	List<Account> accounts = ApplicationFactory.getabstractControllerIntance().getAccountList();
+    	SearchAccount searchAccount = new SearchAccount(accounts);        
+		List<Account> searchedAccounts = searchAccount.search(accountNumber);
+		if(searchedAccounts.size() == 1){
+			searchedAccounts.get(0).addEntry(new TransactionEntry(new Deposit(), amount, note));
+			//System.out.print("Desite amount : "+amount);
+		}else{
+			//System.out.print("Account found "+searchedAccounts.size());
+		}
+		ApplicationFactory.getFinancialAppFormIntance().loadTableWithData();
+    }
     
 //
 //    public DepositController(String accrno, String amount) {

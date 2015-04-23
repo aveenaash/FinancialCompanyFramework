@@ -25,6 +25,8 @@ import com.sun.media.jfxmedia.Media;
  * A basic JFC based application.
  */
 public class ApplicationForm extends JFrame {
+    
+        protected Mediator mediator;
 
 	static {
 		// new FactoryProducer();
@@ -110,12 +112,19 @@ public class ApplicationForm extends JFrame {
 		JButton_Deposit.addActionListener(new DepositController());
 		JButton_Withdraw.addActionListener(new WithdrawController());
 		JButton_Addinterest.addActionListener(new InterestController());
+                
+                mediator = Mediator.getInstance();
+                
+                mediator.registerBtnAddinterest(JButton_Addinterest);
+                mediator.registerBtnDeposit(JButton_Deposit);
+                mediator.registerBtnWithdraw(JButton_Withdraw);
 
 		table.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
 
 					@Override
 					public void valueChanged(ListSelectionEvent e) {
+                                                Mediator.getInstance().notifyView(true);
 						//System.out.println("Hit Select listener 22222========== ");
 						if (e.getValueIsAdjusting()) {
 							return;

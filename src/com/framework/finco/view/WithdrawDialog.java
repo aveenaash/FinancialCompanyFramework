@@ -3,39 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bank.view;
-import java.awt.event.ActionEvent;
+package com.framework.finco.view;
 
-import com.bank.controller.DepositController;
-import com.bank.controller.WithdrawController;
-import com.bank.model.MyMediator;
+
+import com.framework.finco.controller.DepositController;
+import com.framework.finco.controller.WithdrawController;
 import com.finco.framework.model.Mediator;
 import com.framework.finco.ApplicationFactory;
 import com.framework.finco.ApplicationForm;
 import com.framework.finco.view.TransactionDialog;
 
-/**
- *
- * @author 
- */
-public class DepositDialog extends TransactionDialog {
+import java.awt.event.ActionEvent;
 
-    DepositController dc;
-    public DepositDialog(DepositController dc, ApplicationForm parent, String aaccnr) {
+public class WithdrawDialog extends TransactionDialog {
+
+    WithdrawController wc;
+    public WithdrawDialog(WithdrawController wc, ApplicationForm parent, String aaccnr) {
         super(parent, aaccnr);
-        setTitle("Deposit Money");
-        this.dc = dc;
+        setTitle("Withdraw Money");
+        this.wc = wc;
     }
 
     @Override
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         String name = JTextField_NAME.getText();
         double amount = Double.parseDouble(JTextField_Deposit.getText());
-        //new DepositController().deposit(this.getAccnr(), amount, name);
-        dc.deposit(this.getAccnr(), amount, name);
+        //new WithdrawController().withdraw(this.getAccnr(), amount, name);
+        wc.withdraw(this.getAccnr(), amount, name);
         dispose();
         setVisible(false);
-        MyMediator.getInstance().notifyView(false);
+        Mediator.getInstance().notifyView(false);
     }
-
 }
